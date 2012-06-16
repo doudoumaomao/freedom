@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>WebRoot</display-name>
+	<description>应用开发平台</description>
+	
+	<!--  Spring 服务层的配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+        	classpath:config/applicationContext.xml
+        </param-value>
+    </context-param>
+    
+	<!--  Spring 容器启动监听器 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <!-- 配置spring  DispatcherServlet -->
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+    
+	<!-- 设置Session时长:以分钟为单位;如果是零或负数,那么会话就永远不会超时。 -->
+	<session-config>
+		<session-timeout>-1</session-timeout>
+	</session-config>
+	
+	<!-- 缺省首页 -->
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>  
+	
+	<!-- 404错误响应页面 
+		<error-page>
+			<error-code>404</error-code>
+			<location>/common/error/404.jsp</location>
+		</error-page>
+	-->
+	
+	<!-- 500错误响应页面，如果想在客户端获取原始的异常堆栈信息则不要统一拦截500错误
+		<error-page>
+			<error-code>500</error-code>
+			<location>/common/error/500.jsp</location>
+		</error-page>
+	-->
+</web-app>
