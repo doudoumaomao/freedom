@@ -1,4 +1,4 @@
-# HeidiSQL Dump 
+ï»¿# HeidiSQL Dump 
 #
 # --------------------------------------------------------
 # Host:                 127.0.0.1
@@ -28,19 +28,19 @@ USE "mydb";
 #
 
 CREATE TABLE /*!32312 IF NOT EXISTS*/ "sys_users" (
-  "userid" int(11) NOT NULL AUTO_INCREMENT COMMENT 'ÓÃ»§ID',
-  "userTypeID" int(11) DEFAULT NULL COMMENT 'ÓÃ»§ÀàĞÍID',
-  "accounts" varchar(128) NOT NULL DEFAULT '' COMMENT 'ÕÊºÅ',
-  "password" varchar(128) DEFAULT NULL COMMENT 'ÃÜÂë',
-  "encryptionPassword" varchar(512) DEFAULT NULL COMMENT '¼ÓÃÜÃÜÂë',
-  "userName" varchar(60) DEFAULT NULL COMMENT 'ÓÃ»§Ãû',
-  "state" varchar(64) DEFAULT 'normal' COMMENT 'normal Õı³£',
-  "locked" varchar(50) DEFAULT 'false' COMMENT 'Ëø¶¨±êÖ¾',
-  "foundIP" varbinary(64) DEFAULT NULL COMMENT '´´½¨IP',
-  "foundTime" date DEFAULT NULL COMMENT '´´½¨Ê±¼ä',
-  "foundPerson" varchar(128) DEFAULT NULL COMMENT '´´½¨ÈË',
-  "amendTime" date DEFAULT NULL COMMENT 'ĞŞ¸ÄÊ±¼ä',
-  "amendPerson" varchar(128) DEFAULT NULL COMMENT 'ĞŞ¸ÄÈË',
+  "userid" int(11) NOT NULL AUTO_INCREMENT COMMENT 'ç”¨æˆ·ID',
+  "userTypeID" int(11) DEFAULT NULL COMMENT 'ç”¨æˆ·ç±»å‹ID',
+  "accounts" varchar(128) NOT NULL DEFAULT '' COMMENT 'å¸å·',
+  "password" varchar(128) DEFAULT NULL COMMENT 'å¯†ç ',
+  "encryptionPassword" varchar(512) DEFAULT NULL COMMENT 'åŠ å¯†å¯†ç ',
+  "userName" varchar(60) DEFAULT NULL COMMENT 'ç”¨æˆ·å',
+  "state" varchar(64) DEFAULT 'normal' COMMENT 'normal æ­£å¸¸',
+  "locked" varchar(50) DEFAULT 'false' COMMENT 'é”å®šæ ‡å¿—',
+  "foundIP" varbinary(64) DEFAULT NULL COMMENT 'åˆ›å»ºIP',
+  "foundTime" date DEFAULT NULL COMMENT 'åˆ›å»ºæ—¶é—´',
+  "foundPerson" varchar(128) DEFAULT NULL COMMENT 'åˆ›å»ºäºº',
+  "amendTime" date DEFAULT NULL COMMENT 'ä¿®æ”¹æ—¶é—´',
+  "amendPerson" varchar(128) DEFAULT NULL COMMENT 'ä¿®æ”¹äºº',
   PRIMARY KEY ("userid","accounts"),
   KEY "FK_Reference_4" ("userTypeID"),
   CONSTRAINT "FK_Reference_4" FOREIGN KEY ("userTypeID") REFERENCES "sys_usertype" ("userTypeID")
@@ -55,7 +55,7 @@ CREATE TABLE /*!32312 IF NOT EXISTS*/ "sys_users" (
 LOCK TABLES "sys_users" WRITE;
 /*!40000 ALTER TABLE "sys_users" DISABLE KEYS;*/
 REPLACE INTO "sys_users" ("userid", "userTypeID", "accounts", "password", "encryptionPassword", "userName", "state", "locked", "foundIP", "foundTime", "foundPerson", "amendTime", "amendPerson") VALUES
-	(1,NULL,'admin','123456',NULL,'ÏµÍ³¹ÜÀíÔ±','normal','false',NULL,NULL,NULL,NULL,NULL);
+	(1,NULL,'admin','123456',NULL,'ç³»ç»Ÿç®¡ç†å‘˜','normal','false',NULL,NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE "sys_users" ENABLE KEYS;*/
 UNLOCK TABLES;
 
@@ -66,10 +66,10 @@ UNLOCK TABLES;
 
 CREATE TABLE /*!32312 IF NOT EXISTS*/ "sys_usertype" (
   "userTypeID" int(11) NOT NULL AUTO_INCREMENT,
-  "userTypeCode" varchar(128) DEFAULT NULL COMMENT '±àºÅ',
-  "userTypeName" varchar(128) DEFAULT NULL COMMENT 'ÀàĞÍÃû³Æ',
-  "isReadOnly" tinyint(1) DEFAULT NULL COMMENT 'ÊÇ·ñÖ»¶Á',
-  "isVisible" tinyint(1) DEFAULT NULL COMMENT 'ÊÇ·ñ¿É¼û',
+  "userTypeCode" varchar(128) DEFAULT NULL COMMENT 'ç¼–å·',
+  "userTypeName" varchar(128) DEFAULT NULL COMMENT 'ç±»å‹åç§°',
+  "isReadOnly" tinyint(1) DEFAULT NULL COMMENT 'æ˜¯å¦åªè¯»',
+  "isVisible" tinyint(1) DEFAULT NULL COMMENT 'æ˜¯å¦å¯è§',
   PRIMARY KEY ("userTypeID")
 ) /*!40100 DEFAULT CHARSET=utf8 COLLATE=utf8_bin*/;
 
