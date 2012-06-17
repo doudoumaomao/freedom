@@ -18,4 +18,9 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao
 	{
 		return super.findList("User.findByAccounts",accounts);
 	}
+
+	public List<SysUsers> findAllSysUser() 
+	{
+		return super.findList("User.allUser");
+	}
 }

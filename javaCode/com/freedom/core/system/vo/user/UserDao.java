@@ -15,6 +15,10 @@ public interface UserDao extends BaseDao
 	 * @param accounts
 	 * @return
 	 */
-	List<SysUsers> findByAccounts(String accounts);
-
+	public List<SysUsers> findByAccounts(String accounts);
+	/**
+	 * 查询所有用户
+	 * @return
+	 */
+	public List<SysUsers> findAllSysUser();
 }
