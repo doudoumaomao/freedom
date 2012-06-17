@@ -1,5 +1,7 @@
 package com.freedom.core.system.service;
 
+import java.util.List;
+
 import com.freedom.core.system.vo.user.SysUsers;
 
 /**
@@ -16,4 +18,9 @@ public interface UserManage
 	 * @return
 	 */
 	public SysUsers findByAccounts(String accounts);
+	/**
+	 * 查询所有用户
+	 * @return
+	 */
+	public List<SysUsers> findAllSysUser();
 }

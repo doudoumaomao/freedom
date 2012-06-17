@@ -30,4 +30,9 @@ public class UserManageImpl implements UserManage
 		}
 		return null;
 	}
+
+	public List<SysUsers> findAllSysUser() 
+	{
+		return userDao.findAllSysUser();
+	}
 }
