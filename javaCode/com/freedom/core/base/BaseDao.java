@@ -29,4 +29,12 @@ public interface BaseDao
 	 * @return
 	 */
 	public int update(String sqlMap);
+	/**
+	 * 执行数据库带参数的SqlMap
+	 * @param <T>
+	 * @param sqlMap
+	 * @param parameter
+	 * @return
+	 */
+	public int update(String sqlMap,Object parameter);
 }

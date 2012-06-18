@@ -30,5 +30,10 @@ public class BaseDaoImpl implements BaseDao
 	{
 		return sqlSession.update(sqlMap);
 	}
+
+	public int update(String sqlMap, Object parameter) 
+	{
+		return sqlSession.update(sqlMap,parameter);
+	}
 	
 }
