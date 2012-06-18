@@ -12,6 +12,11 @@
     <script src="js/ligerUI/js/plugins/ligerToolBar.js" type="text/javascript"></script>
     <script src="js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
     <script src="js/ligerUI/js/plugins/ligerCheckBox.js" type="text/javascript"></script>
+    
+    <script src="js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
+    <script src="js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
+    <script src="js/ligerUI/js/plugins/ligerWindow.js" type="text/javascript"></script>
+    <script src="js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
     <script type="text/javascript">
     	var userManageData = eval('({Rows:${userList},Total:1})');
     	function itemclick(item)
@@ -20,7 +25,7 @@
         }
     	function addSysUser()
     	{
-    		
+    		$.ligerDialog.open({ url: 'addSysUser_User.action', width: 500, height: 400, isResize: true }); 
     	}
         $(function ()
         {
