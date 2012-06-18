@@ -36,12 +36,37 @@ public class UserAction extends BaseAction
 	 * @throws Exception
 	 */
 	@RequestMapping("/userManage_User.action")
-	public String SysUserManage(HttpServletRequest request,HttpServletResponse response) throws Exception
+	public String sysUserManage(HttpServletRequest request,HttpServletResponse response) throws Exception
 	{
 		
 		List<SysUsers> userList = userManage.findAllSysUser();
-		
 		request.setAttribute("userList", StringUtil.toJsonString(userList));
 		return "system/user/userManage";
+	}
+	/**
+	 * 增加用户
+	 * @param request
+	 * @param response
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/addSysUser_User.action")
+	public String addSysUser(HttpServletRequest request,HttpServletResponse response) throws Exception
+	{
+		
+		if(StringUtil.isNotEmpty(request.getParameter("flag")) && "true".equals(request.getParameter("flag")))
+		{
+			SysUsers user = new SysUsers();
+			user.setUserName(request.getParameter("userName"));
+			user.setAccounts(request.getParameter("account"));
+			user.setPassword(request.getParameter("password"));
+			user.setState(request.getParameter("state"));
+			
+			userManage.saveNewSysUser(user);
+			
+			System.out.println(user.getUserid());
+		}
+		
+		return "system/user/addUser";
 	}
 }

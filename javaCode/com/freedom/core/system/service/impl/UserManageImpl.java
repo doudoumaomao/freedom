@@ -35,4 +35,9 @@ public class UserManageImpl implements UserManage
 	{
 		return userDao.findAllSysUser();
 	}
+
+	public SysUsers saveNewSysUser(SysUsers user) 
+	{
+		return userDao.saveNewSysUser(user);
+	}
 }

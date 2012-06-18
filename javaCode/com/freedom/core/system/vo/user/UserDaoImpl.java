@@ -23,4 +23,10 @@ public class UserDaoImpl extends BaseDaoImpl implements UserDao
 	{
 		return super.findList("User.allUser");
 	}
+
+	public SysUsers saveNewSysUser(SysUsers user) 
+	{
+		super.update("addSysUser",user);
+		return user;
+	}
 }

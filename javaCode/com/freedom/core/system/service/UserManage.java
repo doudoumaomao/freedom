@@ -23,4 +23,10 @@ public interface UserManage
 	 * @return
 	 */
 	public List<SysUsers> findAllSysUser();
+	/**
+	 * 新增用户
+	 * @param user
+	 * @return
+	 */
+	public SysUsers saveNewSysUser(SysUsers user);
 }

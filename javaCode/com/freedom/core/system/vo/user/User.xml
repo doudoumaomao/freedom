@@ -10,4 +10,18 @@
  <select id="findByAccounts" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers">
   	 select * from SYS_USERS where accounts = #account#
  </select>
+ 
+ <insert id="addSysUser" parameterType="com.freedom.core.system.vo.user.SysUsers"  useGeneratedKeys="true">  
+    
+        INSERT INTO SYS_USERS (accounts,  
+                                 password,  
+                                 userName,  
+                                 state)  
+              VALUES   (#{accounts},  
+                        #{password},  
+                        #{userName},  
+                        #{state}
+                        )      
+</insert> 
+
 </mapper>
