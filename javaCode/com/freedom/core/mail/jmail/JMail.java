@@ -170,8 +170,7 @@ public class JMail
                     email.setProt(DEFAULT_SMTP_PROT);
                 }
                 properties.put("mail.smtp.host", email.getHost());
-                properties.put("mail.smtp.auth", "true");
-                //properties.put("mail.smtp.auth", email.getIsAuth());
+                properties.put("mail.smtp.auth", email.getIsAuth());
                 properties.put("mail.smtp.port", email.getProt());
                 properties.put("mail.smtp.connectiontimeout", DEFAULT_TIMEOUT);
                 properties.put("mail.smtp.timeout", DEFAULT_TIMEOUT);

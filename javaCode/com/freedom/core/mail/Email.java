@@ -1,5 +1,13 @@
 package com.freedom.core.mail;
 
+/**
+ * Email实体类
+ * @ClassName: Email 
+ * @Description: TODO(这里用一句话描述这个类的作用) 
+ * @author 
+ * @date 2012-7-5 下午04:15:24 
+ *
+ */
 public class Email 
 {
     private String host;//主机地址
