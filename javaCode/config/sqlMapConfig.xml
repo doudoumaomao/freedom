@@ -3,6 +3,18 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"    
     "http://mybatis.org/dtd/mybatis-3-config.dtd"> 
 <configuration> 
+    
+    <!-- 设置数据库方言 -->
+    <properties>  
+              <property name="dialect" value="oracle"/>  
+    </properties>
+    
+    <!-- 配置Mybatis拦截器 -->
+    <plugins>  
+            <plugin interceptor="com.freedom.extend.interceptor.PaginationInterceptor"/>  
+    </plugins>
+    
+    <!-- 配置SQL配置文件 -->
 	<mappers>
 		<mapper resource="com/freedom/core/system/vo/user/User.xml" />		
 	</mappers>    

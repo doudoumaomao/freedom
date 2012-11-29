@@ -1,7 +1,6 @@
 package com.freedom.core.mail.jmail;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Array;
 import java.util.Properties;
 
 import javax.mail.BodyPart;
@@ -19,10 +18,9 @@ import javax.mail.internet.MimeMultipart;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.freedom.core.common.util.StringUtil;
-import com.freedom.core.exception.AppException;
+import com.freedom.common.util.StringUtil;
+import com.freedom.exception.AppException;
 import com.freedom.core.mail.Email;
-import com.freedom.core.system.action.LoginAction;
 
 public class JMail 
 {

@@ -3,8 +3,10 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="User">
- <select id="allUser" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers">
-  	 select * from SYS_USERS 
+ 
+ <select id="allUser" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers" >
+  	 select * from SYS_USERS order by FOUNDTIME
+  	 
  </select>
  
  <select id="findByAccounts" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers">

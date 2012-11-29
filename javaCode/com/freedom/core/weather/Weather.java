@@ -5,10 +5,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Writer;
 import java.net.URL;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 import javax.mail.MessagingException;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 
 import org.codehaus.jackson.map.ObjectMapper;
 
@@ -27,6 +31,7 @@ public class Weather
     {
         try
         {
+            
             URL url = new URL("http://www.weather.com.cn/data/cityinfo/101010100.html");
             InputStream inputstream = url.openStream();
             BufferedReader in = new BufferedReader(new  InputStreamReader(inputstream));
@@ -51,15 +56,11 @@ public class Weather
             JMail cn = new JMail();
             Email email = new Email();
             email.setHost("smtp.qq.com");
-            email.setUser("138383877@qq.com");
-            email.setPassword("13327126259");
+            email.setUser("Email");
+            email.setPassword("password");
             email.setFromName("毛毛");
-            /*
-            String[] toEmailArr = {"18647975294@qq.com","815256819@qq.com","1171455@qq.com",
-                                   "381027183@qq.com","170437211@qq.com","78400067@qq.com",
-                                   "1132201810@qq.com","289864744@qq.com"};
-            */
-            String[] toEmailArr = {"18647975294@qq.com","289864744@qq.com"};
+            
+            String[] toEmailArr = {"Email","Email"};
             email.setToEmail(toEmailArr);
             
             email.setMessageTitle(title.toString());
@@ -68,10 +69,9 @@ public class Weather
             System.out.println("进来了！");
             cn.sendEmail("smtp",email);
 
-
-            
         }
-        catch (Exception e) {
+        catch (Exception e) 
+        {
             e.printStackTrace();
         }
     }

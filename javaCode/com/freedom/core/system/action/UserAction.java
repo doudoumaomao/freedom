@@ -12,7 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.freedom.core.base.BaseAction;
-import com.freedom.core.common.util.StringUtil;
+import com.freedom.common.Constants;
+import com.freedom.common.util.StringUtil;
 import com.freedom.core.system.service.UserManage;
 import com.freedom.core.system.vo.user.SysUsers;
 /**
@@ -38,9 +39,6 @@ public class UserAction extends BaseAction
 	@RequestMapping("/userManage_User.action")
 	public String sysUserManage(HttpServletRequest request,HttpServletResponse response) throws Exception
 	{
-		
-		List<SysUsers> userList = userManage.findAllSysUser();
-		request.setAttribute("userList", StringUtil.toJsonString(userList));
 		return "system/user/userManage";
 	}
 	/**
@@ -69,4 +67,16 @@ public class UserAction extends BaseAction
 		
 		return "system/user/addUser";
 	}
+	
+	@RequestMapping("/ajaxGetUserList_User.action")
+    public String ajaxGetUserList(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+	    System.out.println(request.getParameter("page"));
+	    System.out.println(request.getParameter("pagesize"));
+	    
+        List<SysUsers> userList = userManage.findAllSysUser();
+        System.out.println("+++++++++" + userList.size());
+        request.setAttribute("str",StringUtil.toJsonString(userList, Constants.FORMAT_DateTime));
+        return "common/ajax";
+    }
 }

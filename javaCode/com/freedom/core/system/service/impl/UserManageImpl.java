@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.freedom.core.system.service.UserManage;
 import com.freedom.core.system.vo.user.SysUsers;
 import com.freedom.core.system.vo.user.UserDao;
+import com.sun.istack.internal.NotNull;
 
 /**
  * 系统用户业务逻辑实现类
@@ -21,7 +22,7 @@ public class UserManageImpl implements UserManage
 {
 	@Resource
 	private UserDao userDao;
-
+	
 	public SysUsers findByAccounts(String accounts) {
 		List<SysUsers> userList = userDao.findByAccounts(accounts);
 		if(!userList.isEmpty())

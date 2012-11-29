@@ -1,9 +1,11 @@
 package com.freedom.core.base;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 
 /**
@@ -35,5 +37,6 @@ public class BaseDaoImpl implements BaseDao
 	{
 		return sqlSession.update(sqlMap,parameter);
 	}
+	
 	
 }

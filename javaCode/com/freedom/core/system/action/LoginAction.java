@@ -10,8 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.freedom.core.base.BaseAction;
-import com.freedom.core.common.Constants;
-import com.freedom.core.common.util.SessionListener;
+import com.freedom.common.Constants;
+import com.freedom.common.util.SessionListener;
 import com.freedom.core.system.service.UserManage;
 import com.freedom.core.system.vo.user.SysUsers;
 
