@@ -1,10 +1,18 @@
 package com.freedom.extend.data;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource; 
 import org.springframework.jdbc.core.JdbcTemplate; 
-
+/**
+ * 分页类
+ * @ClassName: Pagination 
+ * @Description: 获取分页数据使用
+ * @author A18ccms a18ccms_gmail_com 
+ * @date 2012-11-29 下午06:27:57 
+ *
+ */
 public class Pagination 
 {
     private int page = 1;        //当前页码，从1计起 
@@ -13,6 +21,7 @@ public class Pagination
     private int startNumber = 1; //起始数
     private int endNumber = 1;   //截至数
     private List<?> rows;        //数据结果集
+    private Map<?,?> parameter;  //参数
     
     public Pagination(int page,int pagesize)
     { 
@@ -52,4 +61,13 @@ public class Pagination
     public void setRows(List<?> rows) {
         this.rows = rows;
     }
+
+    public Map<?, ?> getParameter() {
+        return parameter;
+    }
+
+    public void setParameter(Map<?, ?> parameter) {
+        this.parameter = parameter;
+    }
+    
 }
