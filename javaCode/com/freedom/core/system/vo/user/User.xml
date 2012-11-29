@@ -9,7 +9,7 @@
   	 
  </select>
  
- <select id="findByAccounts" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers">
+ <select id="findByAccounts" parameterType="java.lang.String" resultType="com.freedom.core.system.vo.user.SysUsers">
   	 select * from SYS_USERS where accounts = #account#
  </select>
  

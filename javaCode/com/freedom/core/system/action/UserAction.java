@@ -61,8 +61,6 @@ public class UserAction extends BaseAction
 			user.setState(request.getParameter("state"));
 			
 			userManage.saveNewSysUser(user);
-			
-			System.out.println(user.getUserid());
 		}
 		
 		return "system/user/addUser";
