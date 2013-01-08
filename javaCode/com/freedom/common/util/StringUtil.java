@@ -3,10 +3,13 @@ package com.freedom.common.util;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+
+import com.freedom.extend.data.Pagination;
 
 /**
  * 字符串工具
@@ -46,6 +49,19 @@ public class StringUtil
 	{
 	    return ((value == null) ? false : isNotEmpty(value.trim()));
 	}
+	
+	public static void main(String[] args) throws Exception
+	{
+		HashMap<String, String[]> aa = new HashMap<>();
+		String[] bb = {"1","2"};
+		aa.put("AA", bb);
+		aa.put("bb", bb);
+		
+		Pagination cc = new Pagination(1,2);
+		
+		System.out.println(toJsonString(cc));
+	}
+	
 	/**
 	 * 将java对象转为json字符串，日期输出为毫秒
 	 * @param value
