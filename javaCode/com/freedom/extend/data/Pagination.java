@@ -3,8 +3,8 @@ package com.freedom.extend.data;
 import java.util.List;
 import java.util.Map;
 
-import javax.sql.DataSource; 
-import org.springframework.jdbc.core.JdbcTemplate; 
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 /**
  * 分页类
  * @ClassName: Pagination 
@@ -13,11 +13,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
  * @date 2012-11-29 下午06:27:57 
  *
  */
+@JsonIgnoreProperties(value = {"page","pagesize","startNumber","endNumber","parameter"})
 public class Pagination 
 {
     private int page = 1;        //当前页码，从1计起 
     private int pagesize = 1;    //每页记录数
-    private int total;           //总记录数 
+    private int total = 0;     //总记录数 
     private int startNumber = 1; //起始数
     private int endNumber = 1;   //截至数
     private List<?> rows;        //数据结果集
@@ -37,8 +38,16 @@ public class Pagination
         //计算截至数
         this.endNumber = page * pagesize;
     }
+    
+    public List<?> getRows() {
+		return rows;
+	}
 
-    public int getPage() {
+	public void setRows(List<?> rows) {
+		this.rows = rows;
+	}
+
+	public int getPage() {
         return page;
     }
 
@@ -54,20 +63,28 @@ public class Pagination
         this.total = total;
     }
 
-    public <T> List<T> getRows() {
-        return (List<T>) rows;
-    }
-
-    public void setRows(List<?> rows) {
-        this.rows = rows;
-    }
-
-    public Map<?, ?> getParameter() {
+	public Map<?, ?> getParameter() {
         return parameter;
     }
 
     public void setParameter(Map<?, ?> parameter) {
         this.parameter = parameter;
     }
+
+	public int getStartNumber() {
+		return startNumber;
+	}
+
+	public void setStartNumber(int startNumber) {
+		this.startNumber = startNumber;
+	}
+
+	public int getEndNumber() {
+		return endNumber;
+	}
+
+	public void setEndNumber(int endNumber) {
+		this.endNumber = endNumber;
+	}
     
 }
