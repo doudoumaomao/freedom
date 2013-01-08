@@ -9,44 +9,39 @@
     <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>    
     <script src="js/ligerUI/js/core/base.js" type="text/javascript"></script>
     <script src="js/ligerUI/js/plugins/ligerGrid.js" type="text/javascript"></script>
-    <script src="js/ligerUI/js/plugins/ligerToolBar.js" type="text/javascript"></script>
-    <script src="js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-    <script src="js/ligerUI/js/plugins/ligerCheckBox.js" type="text/javascript"></script>
-    
-    <script src="js/ligerUI/js/plugins/ligerDrag.js" type="text/javascript"></script>
-    <script src="js/ligerUI/js/plugins/ligerResizable.js" type="text/javascript"></script>
-    <script src="js/ligerUI/js/plugins/ligerWindow.js" type="text/javascript"></script>
-    <script src="js/ligerUI/js/plugins/ligerDialog.js" type="text/javascript"></script>
     <script type="text/javascript">
-    	var userManageData = eval('({Rows:${userList},Total:1})');
     	function itemclick(item)
         {
             alert(item.text);
         }
     	function addSysUser()
     	{
-    		$.ligerDialog.open({ url: 'addSysUser_User.action', width: 500, height: 400, isResize: true }); 
+    		//$.ligerDialog.open({ url: 'addSysUser_User.action', width: 500, height: 400, isResize: true }); 
     	}
         $(function ()
         {
             $("#userManageTable").ligerGrid({
             	checkbox: true,
                 columns: [
-				{ display: '用户ID', name: 'userid' ,hide : 1},
-                { display: '姓名', name: 'userName', align: 'center', minWidth: 90,width : 100},
-                { display: '帐号', name: 'accounts', minWidth: 80 ,width : 100},
-                { display: '密码', name: 'password', minWidth: 80 ,width : 100},
-                { display: '加密密码', name: 'encryptionPassword', minWidth: 80 ,width : 100},
-                { display: '创建时间', name: 'foundTime', minWidth: 80 ,width : 100},
-                { display: '创建人', name: 'foundPerson', minWidth: 80 ,width : 100},
-                { display: '创建IP', name: 'foundIP', minWidth: 80 ,width : 100},
-                { display: '最后修改时间', name: 'amendTime', minWidth: 80 ,width : 100},
-                { display: '最后修改人', name: 'amendPerson', minWidth: 80 ,width : 100},
-                { display: '是否锁定登录', name: 'locked', minWidth: 80 ,width : 100},
-                { display: '状态', name: 'state', width: 50, align: 'left' }
-                ], pageSize: 30,
-                data: userManageData, sortName: 'userid',
-                width: '100%', height: '100%',
+								 { display: '用户ID', name: 'userid' ,hide : 1},
+			                { display: '姓名', name: 'userName', align: 'center', minWidth: 90,width : 100},
+			                { display: '帐号', name: 'accounts', minWidth: 80 ,width : 100},
+			                { display: '密码', name: 'password', minWidth: 80 ,width : 100},
+			                { display: '加密密码', name: 'encryptionPassword', minWidth: 80 ,width : 100},
+			                { display: '创建时间', name: 'foundTime', minWidth: 80 ,width : 100},
+			                { display: '创建人', name: 'foundPerson', minWidth: 80 ,width : 100},
+			                { display: '创建IP', name: 'foundIP', minWidth: 80 ,width : 100},
+			                { display: '最后修改时间', name: 'amendTime', minWidth: 80 ,width : 100},
+			                { display: '最后修改人', name: 'amendPerson', minWidth: 80 ,width : 100},
+			                { display: '是否锁定登录', name: 'locked', minWidth: 80 ,width : 100},
+			                { display: '状态', name: 'state', width: 50, align: 'left' }
+               		 ], 
+                url: '/ajaxGetUserList_User.action',
+                pageSize: 5,
+                sortName: 'userid',
+                width: '100%', 
+                height: '100%',
+                dataAction: 'server',
                 selectRowButtonOnly: true,rownumbers:true,
                 toolbar: { 
                 	items: [
