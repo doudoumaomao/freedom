@@ -1,7 +1,5 @@
 package com.freedom.core.system.action;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,6 +14,7 @@ import com.freedom.common.Constants;
 import com.freedom.common.util.StringUtil;
 import com.freedom.core.system.service.UserManage;
 import com.freedom.core.system.vo.user.SysUsers;
+import com.freedom.extend.data.Pagination;
 /**
  * 用户Action处理所有系统用户
  * @author maomao
@@ -69,12 +68,9 @@ public class UserAction extends BaseAction
 	@RequestMapping("/ajaxGetUserList_User.action")
     public String ajaxGetUserList(HttpServletRequest request,HttpServletResponse response) throws Exception
     {
-	    System.out.println(request.getParameter("page"));
-	    System.out.println(request.getParameter("pagesize"));
-	    
-        List<SysUsers> userList = userManage.findAllSysUser();
-        System.out.println("+++++++++" + userList.size());
-        request.setAttribute("str",StringUtil.toJsonString(userList, Constants.FORMAT_DateTime));
-        return "common/ajax";
+		 Pagination paging = new Pagination(Integer.valueOf(request.getParameter("page")),Integer.valueOf(request.getParameter("pagesize")));
+       userManage.findAllSysUserPaging(paging);
+       request.setAttribute("str",StringUtil.toJsonString(paging, Constants.FORMAT_DateTime));
+       return "common/ajax";
     }
 }
