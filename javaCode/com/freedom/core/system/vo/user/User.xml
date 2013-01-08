@@ -5,17 +5,20 @@
 <mapper namespace="User">
  
  <select id="allUser" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers" >
-  	 select * from SYS_USERS order by FOUNDTIME
-  	 
+  	 select * from sys_users order by FOUNDTIME
+ </select>
+ <!-- 查询所有用户总数方法，分页查询使用 -->
+ <select id="allUserTotal" parameterType="int" resultType="int" >
+  	 select count(*) from sys_users order by FOUNDTIME
  </select>
  
  <select id="findByAccounts" parameterType="java.lang.String" resultType="com.freedom.core.system.vo.user.SysUsers">
-  	 select * from SYS_USERS where accounts = #account#
+  	 select * from sys_users where accounts = #account#
  </select>
  
  <insert id="addSysUser" parameterType="com.freedom.core.system.vo.user.SysUsers"  useGeneratedKeys="true">  
     
-        INSERT INTO SYS_USERS (accounts,  
+        INSERT INTO sys_users (accounts,  
                                  password,  
                                  userName,  
                                  state)  

@@ -3,6 +3,7 @@ package com.freedom.core.system.vo.user;
 import java.util.List;
 
 import com.freedom.core.base.BaseDao;
+import com.freedom.extend.data.Pagination;
 /**
  * 系统用户数据访问接口
  * @author maomao
@@ -29,4 +30,9 @@ public interface UserDao extends BaseDao
 	 * @return
 	 */
 	public SysUsers saveNewSysUser(SysUsers user);
+	/**
+	 * 查询所有用户并分页
+	 * @return
+	 */
+	public void findAllSysUserPaging(Pagination pagination);
 }
