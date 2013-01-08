@@ -3,6 +3,7 @@ package com.freedom.core.system.service;
 import java.util.List;
 
 import com.freedom.core.system.vo.user.SysUsers;
+import com.freedom.extend.data.Pagination;
 
 /**
  * 系统用户逻辑业务接口
@@ -29,4 +30,9 @@ public interface UserManage
 	 * @return
 	 */
 	public SysUsers saveNewSysUser(SysUsers user);
+	/**
+	 * 查询所有用户并分页
+	 * @return
+	 */
+	public void findAllSysUserPaging(Pagination pagination);
 }

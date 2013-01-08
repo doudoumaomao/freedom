@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.freedom.core.system.service.UserManage;
 import com.freedom.core.system.vo.user.SysUsers;
 import com.freedom.core.system.vo.user.UserDao;
+import com.freedom.extend.data.Pagination;
 import com.sun.istack.internal.NotNull;
 
 /**
@@ -40,5 +41,10 @@ public class UserManageImpl implements UserManage
 	public SysUsers saveNewSysUser(SysUsers user) 
 	{
 		return userDao.saveNewSysUser(user);
+	}
+
+	@Override
+	public void findAllSysUserPaging(Pagination pagination) {
+		userDao.findAllSysUserPaging(pagination);
 	}
 }
