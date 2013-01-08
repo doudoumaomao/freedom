@@ -67,8 +67,8 @@
         fixedCellHeight: true,                       //是否固定单元格的高度
         heightDiff: 0,                         //高度补差,当设置height:100%时，可能会有高度的误差，可以通过这个属性调整
         cssClass: null,                    //类名
-        root: 'Rows',                       //数据源字段名
-        record: 'Total',                     //数据源记录数字段名
+        root: 'rows',                       //数据源字段名
+        record: 'total',                     //数据源记录数字段名
         pageParmName: 'page',               //页索引参数名，(提交给服务器)
         pagesizeParmName: 'pagesize',        //页记录数参数名，(提交给服务器)
         sortnameParmName: 'sortname',        //页排序列名(提交给服务器)
