@@ -49,6 +49,7 @@ public class BaseDaoImpl implements BaseDao
 		if(pagination == null)
 			throw new NullAbleException(Pagination.class);
 		
+		pagination.setTotal((int)sqlSession.selectOne(sqlMap + "Total"));
 		pagination.setRows(sqlSession.selectList(sqlMap,null,new RowBounds(pagination.getStartNumber(), pagination.getEndNumber())));
 	}
 	
