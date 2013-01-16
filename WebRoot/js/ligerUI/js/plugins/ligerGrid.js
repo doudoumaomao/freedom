@@ -41,7 +41,7 @@
         switchPageSizeApplyComboBox: false,     //切换每页记录数是否应用ligerComboBox
         allowAdjustColWidth: true,              //是否允许调整列宽     
         checkbox: false,                         //是否显示复选框
-        allowHideColumn: true,                 //是否显示'切换列层'按钮
+        allowHideColumn: false,                 //是否显示'切换列层'按钮
         enabledEdit: false,                      //是否允许编辑
         isScroll: true,                         //是否滚动
         onDragCol: null,                       //拖动列事件
@@ -59,7 +59,7 @@
         onAfterShowData: null,                 //显示完数据事件
         onError: null,                         //错误事件
         onSubmit: null,                         //提交前事件
-        dateFormat: 'yyyy-MM-dd',              //默认时间显示格式
+        dateFormat: 'yyyy-MM-dd HH:mm:ss',              //默认时间显示格式
         InWindow: true,                        //是否以窗口的高度为准 height设置为百分比时可用
         statusName: '__status',                    //状态名
         method: 'post',                         //提交方式
@@ -96,7 +96,7 @@
         onAfterEdit: null,                       //结束编辑后事件
         onLoading: null,                        //加载时函数
         onLoaded: null,                          //加载完函数
-        onContextmenu: null,                   //右击事件
+        onContextmenu: null,                   //右击事件"
         whenRClickToSelect: false,                //右击行时是否选中
         contentType: null,                     //Ajax contentType参数
         checkboxColWidth: 27,                  //复选框列宽度
@@ -573,7 +573,6 @@
             g.gridheader = $(".l-grid-header:first", g.gridview2);
             //表主体     
             g.gridbody = $(".l-grid-body:first", g.gridview2);
-
             //frozen
             g.f = {};
             //表头     
@@ -739,18 +738,18 @@
                 }
             }
             if (p.dataAction == "server")
-            {
-                if (p.usePager)
                 {
-                    param.push({ name: p.pageParmName, value: p.newPage });
-                    param.push({ name: p.pagesizeParmName, value: p.pageSize });
-                }
-                if (p.sortName)
-                {
-                    param.push({ name: p.sortnameParmName, value: p.sortName });
-                    param.push({ name: p.sortorderParmName, value: p.sortOrder });
-                }
-            };
+                    if (p.usePager)
+                    {
+                        param.push({ name: p.pageParmName, value: p.newPage });
+                        param.push({ name: p.pagesizeParmName, value: p.pageSize });
+                    }
+                    if (p.sortName)
+                    {
+                        param.push({ name: p.sortnameParmName, value: p.sortName });
+                        param.push({ name: p.sortorderParmName, value: p.sortOrder });
+                    }
+                };
             $(".l-bar-btnload span", g.toolbar).addClass("l-disabled");
             if (p.dataType == "local")
             {
@@ -2418,7 +2417,7 @@
                 column.columnindex = i;
                 column.type = column.type || "string";
                 column.islast = i == g.columns.length - 1;
-                column.isSort = column.isSort == false ? false : true;
+                column.isSort = column.isSort ? true : false;
                 column.frozen = column.frozen ? true : false;
                 column._width = g._getColumnWidth(column);
                 column._hide = column.hide ? true : false;
