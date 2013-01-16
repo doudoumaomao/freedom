@@ -21,6 +21,7 @@ public class SysUsers
 	private String foundPerson;
 	private Date amendTime;
 	private String amendPerson;
+	private String userType;
 	
 	public SysUsers(){}
 	
@@ -99,6 +100,12 @@ public class SysUsers
 	}
 	public void setAmendPerson(String amendPerson) {
 		this.amendPerson = amendPerson;
+	}
+	public String getUserType() {
+		return userType;
+	}
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 	
 	
