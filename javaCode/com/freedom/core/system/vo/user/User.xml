@@ -5,11 +5,16 @@
 <mapper namespace="User">
  
  <select id="allUser" parameterType="int" resultType="com.freedom.core.system.vo.user.SysUsers" >
-  	 select * from sys_users order by FOUNDTIME
+  	 select userid,userName,accounts,password,encryptionPassword,
+  	 (select parValueName from sys_paramenter where parValue = userType and parType = 'usertype') as userType,
+  	 locked,
+  	 (select parValueName from sys_paramenter where parValue = state and parType = 'userstate') as state,
+  	 foundTime,foundPerson,foundIP,amendTime,amendPerson 
+  	 from sys_users order by FOUNDTIME 
  </select>
  <!-- 查询所有用户总数方法，分页查询使用 -->
  <select id="allUserTotal" parameterType="int" resultType="int" >
-  	 select count(*) from sys_users order by FOUNDTIME
+  	 select count(*) from sys_users order by FOUNDTIME 
  </select>
  
  <select id="findByAccounts" parameterType="java.lang.String" resultType="com.freedom.core.system.vo.user.SysUsers">
@@ -20,12 +25,22 @@
     
         INSERT INTO sys_users (accounts,  
                                  password,  
+                                 encryptionPassword,
                                  userName,  
-                                 state)  
+                                 state,
+                                 foundTime,
+                                 foundPerson,
+                                 amendTime,
+                                 amendPerson)  
               VALUES   (#{accounts},  
                         #{password},  
+                        password(#{password}), 
                         #{userName},  
-                        #{state}
+                        #{state},
+                        now(),
+                        #{foundPerson},
+                        now(),
+                        #{amendPerson}
                         )      
 </insert> 
 
