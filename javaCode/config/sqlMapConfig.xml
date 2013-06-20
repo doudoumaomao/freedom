@@ -6,7 +6,7 @@
     
     <!-- 设置数据库方言 -->
     <properties>  
-              <property name="dialect" value="oracle"/>  
+              <property name="dialect" value="mysql"/>  
     </properties>
     
     <!-- 配置Mybatis拦截器 -->
